@@ -72,8 +72,8 @@ export class VaccineSearchComponent implements OnInit {
     });
   }
   onStop() {
-    this.countDown.unsubscribe();
+    this.countDown?.unsubscribe();
     this.counter = 300;
-    this.subscription.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 }

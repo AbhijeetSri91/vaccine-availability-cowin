@@ -1,4 +1,4 @@
-<mat-card style="margin: 2rem;margin-bottom: 5rem;" class="mat-elevation-z8">
+<mat-card style="margin: 2rem;margin-bottom: 5rem;width: 500px;" class="mat-elevation-z8">
     <mat-card-header style=" align-items: center;">
         <span style="margin-right: 1rem;" (click)="onBackClick()">
             <mat-icon>arrow_back</mat-icon>
@@ -7,12 +7,11 @@
             Available vaccines auto refresh
         </span>
         <span style="flex: 1 1 auto;"></span>
-        <span *ngIf="!autoReload">
+        <span *ngIf="!autoReload" style="margin-right: 1rem;">
             <button mat-button matTooltip="refresh page" (click)="onRefresh()">
                 <mat-icon>refresh</mat-icon>
             </button>
         </span>
-        <span style="margin-right: 2rem;"></span>
         <span>
             <mat-slide-toggle [(ngModel)]="autoReload" matTooltip="reload Auto on/off">Auto Reload
             </mat-slide-toggle>
