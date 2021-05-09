@@ -1,5 +1,5 @@
-<mat-card style="margin: 2rem;margin-bottom: 5rem;width: 500px;" class="mat-elevation-z8">
-    <mat-card-header style=" align-items: center;">
+<mat-card style="margin: 2rem;margin-bottom: 5rem;" class="mat-elevation-z8">
+    <mat-card-header style=" align-items: center; flex-wrap: wrap;">
         <span style="margin-right: 1rem;" (click)="onBackClick()">
             <mat-icon>arrow_back</mat-icon>
         </span>
@@ -35,34 +35,36 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <mat-table [dataSource]="dataSource" class="mat-elevation-z0" style="padding: 0px 13px;">
-            <ng-container matColumnDef="vaccine">
-                <mat-header-cell *matHeaderCellDef> Vaccine Name </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.vaccine}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="available_capacity">
-                <mat-header-cell *matHeaderCellDef> Available </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.available_capacity}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="min_age_limit">
-                <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.min_age_limit}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef> Center Name </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="address">
-                <mat-header-cell *matHeaderCellDef> Center Address </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="pincode">
-                <mat-header-cell *matHeaderCellDef> Pincode </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.pincode}} </mat-cell>
-            </ng-container>
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
+        <div style="overflow-x: auto;">
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z0" style="padding: 0px 13px;min-width: 576px">
+                <ng-container matColumnDef="vaccine">
+                    <mat-header-cell *matHeaderCellDef> Vaccine Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.vaccine}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="available_capacity">
+                    <mat-header-cell *matHeaderCellDef> Available </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.available_capacity}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="min_age_limit">
+                    <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.min_age_limit}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Center Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="address">
+                    <mat-header-cell *matHeaderCellDef> Center Address </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="pincode">
+                    <mat-header-cell *matHeaderCellDef> Pincode </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.pincode}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
     </mat-card-content>
     <mat-card-actions style="padding-top: 1rem;" *ngIf="autoReload">
         <button mat-raised-button color="primary" (click)="onAutoReloadStart()" matTooltip="start Auto Reload"
